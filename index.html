@@ -1,19 +1,28 @@
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <title>D3 Page Template</title>
-		<!-The released bundle supports AMD, CommonJS, and vanilla environments. -!>
-        <script src="https://d3js.org/d3.v4.js"></script>
-		<!- For the minified version-!>
-		<script src="https://d3js.org/d3.v4.min.js"></script>
-		<!-You can also use the standalone D3 microlibraries -!>
-		<script src="https://d3js.org/d3-selection.v1.js"></script>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="dvapp.js"></script>
+  <script src="http://d3js.org/d3.v3.min.js"></script>
+  <script src="http://dimplejs.org/dist/dimple.v2.0.0.min.js"></script>
+  </head>
+	<style>
 	
-    </head>
-    <body>
-        <script type="text/javascript">
-            // Your beautiful D3 code will go here
-        </script>
-    </body>
+		circle.dimple-series-1{
+			fill:red;
+			
+		}
+		h2{
+			text-align: center;
+		}
+	</style>
+<body>
+  <script type="text/javascript">
+  /*
+    Use D3 (not dimple.js) to load the TSV file
+    and pass the contents of it to the draw function
+    */
+  d3.tsv("world_cup.tsv", draw);
+  </script>
+</body>
 </html>

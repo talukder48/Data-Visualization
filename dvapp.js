@@ -8,6 +8,9 @@ function draw(data) {
           var margin = 75,
               width = 1400 - margin,
               height = 600 - margin;
+		d3.select("body")
+			.append("h2")
+				.text("World Coup Data Analysis Chart")
 
           var svg = d3.select("body")
             .append("svg")
@@ -15,6 +18,7 @@ function draw(data) {
               .attr("height", height + margin)
             .append('g')
                 .attr('class','chart');
+	
 
       /*
         Dimple.js Chart construction code
@@ -23,6 +27,10 @@ function draw(data) {
           var myChart = new dimple.chart(svg, data);
           var x = myChart.addTimeAxis("x", "year"); 
           myChart.addMeasureAxis("y", "attendance");
-          myChart.addSeries(null, dimple.plot.bar);
+			x.dateParseFormat="%Y";
+			x.tickFormat="%Y";
+			x.timeInterval=4;
+		  myChart.addSeries("stage", dimple.plot.scatter);
+	 	  myChart.addSeries("stage", dimple.plot.line);
           myChart.draw();
         };
